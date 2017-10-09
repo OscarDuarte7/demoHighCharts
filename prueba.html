@@ -1,32 +1,31 @@
 <!doctype html>
 <html>
-    <meta charset="utf-8">
+<meta charset="utf-8">
 <head>
-
-
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-more.js"></script>
 </head>
-
 
 <body>
 
-    <div id="container" style="width: 300px; height: 300px; margin: 0 auto"></div>
-    <script src="prueba.js"></script>
+	<div class="row">
+		<div id="container" class="col-sm-4"></div>
+		<div id="container2" class="col-sm-4"></div>
+	</div>
 
+	<script src="js/prueba.js"></script>
 
-    <div id="container" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+	<input type="number" value="0" id="hora" />
+	<input type="number" value="0" id="minutos" />
+	<input type="number" value="0" id="segundos" />
 
-    <input type="number" value ="0" id="hora" />
-    <input type="number" value ="0" id="minutos" />
-    <input type="number" value ="0" id="segundos" />
-
-    <button type="button" onclick="capturarTiempo()">Oprimir</button>
+	<button type="button" onclick="capturarTiempo()">Oprimir</button>
 </body>
 
-    
+
 
 
 </html>
