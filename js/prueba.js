@@ -20,6 +20,10 @@ time = {
 
 var iterador;
 
+
+
+
+
 function capturarTiempo() {
 
 	var h = parseInt(document.getElementById("hora").value);
@@ -39,6 +43,34 @@ function setTime(hora, minutos, segundos) {
 
 	};
 
+}
+
+function setHoraZona(){
+
+ 
+ var xhr = new XMLHttpRequest();
+ var latitud = parseInt(document.getElementById("latitud").value);
+ var longitud = parseInt(document.getElementById("longitud").value);;
+ var timestamp = 1507575600;
+
+ var stiempo;
+    xhr.open("GET","https://maps.googleapis.com/maps/api/timezone/json?location="+latitud+","+longitud+"&timestamp="+timestamp+"&key=AIzaSyDrsuTvQ4ELMOBuV87DwQvmE3Nd0HQydjs",true);
+    xhr.send();
+ 
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+        	var d = new Date();
+    		var n = d.getUTCHours();
+        	stiempo = JSON.parse(xhr.response);
+           // console.log ( stiempo);
+           // console.log ( n);
+
+            var hora = n+((stiempo.rawOffset+stiempo.dstOffset)/3600);
+            alert( stiempo.timeZoneName);
+            setTime(hora,  d.getUTCMinutes(),  d.getUTCSeconds());
+
+        }
+    }
 }
 
 function iterar() {
@@ -197,9 +229,9 @@ var reloj = Highcharts.chart('container', {
 							};
 
 							// Cache the tooltip text
-							chart.tooltipText = pad(Math.floor(now.hours), 2)
+							/*chart.tooltipText = pad(Math.floor(now.hours), 2)
 									+ ':' + pad(Math.floor(now.minutes * 5), 2)
-									+ ':' + pad(now.seconds * 5, 2);
+									+ ':' + pad(now.seconds * 5, 2);*/
 
 							hour.update(now.hours, true, animation);
 							minute.update(now.minutes, true, animation);
@@ -344,3 +376,14 @@ function(chart) {
 		}, 3000);
 	}
 });
+
+
+//function cambiar(){
+
+
+    //console.log(stiempo);
+
+         /*  $.ajax({url: "https://maps.googleapis.com/maps/api/timezone/json?location=39.6034810,-119.6822510&timestamp=1331161200&key=AIzaSyDrsuTvQ4ELMOBuV87DwQvmE3Nd0HQydjs", success: function(result){
+            console.log(result);
+        }});*/
+//}

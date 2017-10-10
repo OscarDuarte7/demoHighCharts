@@ -7,6 +7,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/highcharts-more.js"></script>
+
 </head>
 
 <body>
@@ -23,6 +24,11 @@
 	<input type="number" value="0" id="segundos" />
 
 	<button type="button" onclick="capturarTiempo()">Oprimir</button>
+
+	<input type="number" value="0" id="latitud" />
+	<input type="number" value="0" id="longitud" />
+	<button type="button" onclick="setHoraZona()">Obtener Hora</button>
+	<label id="zona"></label>
 </body>
 
 
