@@ -1,38 +1,58 @@
 <!doctype html>
 <html>
 <meta charset="utf-8">
+
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/highcharts-more.js"></script>
-
 </head>
 
 <body>
-
 	<div class="row">
-		<div id="container" class="col-sm-4"></div>
-		<div id="container2" class="col-sm-4"></div>
+		<div class="col-sm-6">
+			<div id="container"></div>
+			<form class="form-inline">
+				<div class="form-group" style="width: 100%;">
+					<label for="hora">H: </label>
+					<input type="number" class="form-control" style="width: 30%;" placeholder="Horas" id="hora" min="0" max="12" />
+
+					<label for="minutos">M: </label>
+					<input type="number" class="form-control" style="width: 30%;" placeholder="Minutos" id="minutos" min="0" max="59" />
+
+					<label for="segundos">S: </label>
+					<input type="number" class="form-control" style="width: 30%;" placeholder="Segundos" id="segundos" min="0" max="59" />
+				</div>
+				<br>
+				<div class="text-center">
+					<button type="button" class="btn btn-primary" onclick="capturarTiempo()">Cambiar hora</button>
+					<button type="button" class="btn btn-primary" onclick="detenerReloj()" id="inicio">Iniciar reloj</button>
+				</div>
+			</form>
+
+			<br>
+			<form class="form-inline">
+				<div class="form-group" style="width: 100%;">
+					<label for="latitud">Lat: </label>
+					<input type="number" class="form-control" style="width: 44%;" placeholder="Latitud" id="latitud" />
+
+					<label for="longitud">Lon: </label>
+					<input type="number" class="form-control" style="width: 44%;" placeholder="Longitud" id="longitud" />
+
+					<div class="text-center">
+						<button type="button" class="btn btn-primary" onclick="setHoraZona()">Cambiar Hora por Zona Horaria</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="col-sm-6">
+			<div id="container2"></div>
+		</div>
 	</div>
 
 	<script src="js/prueba.js"></script>
-
-	<input type="number" value="0" id="hora" />
-	<input type="number" value="0" id="minutos" />
-	<input type="number" value="0" id="segundos" />
-
-	<button type="button" onclick="capturarTiempo()">Oprimir</button>
-
-	<input type="number" value="0" id="latitud" />
-	<input type="number" value="0" id="longitud" />
-	<button type="button" onclick="setHoraZona()">Obtener Hora</button>
-	<label id="zona"></label>
 </body>
-
-
-
-
 </html>
-
